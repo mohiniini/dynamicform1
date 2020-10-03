@@ -1,0 +1,36 @@
+<div class="container-fluid ">
+    <form class="pt-3 offset-lg-2" #f='ngForm'>
+        <span (click)="addform()" class="btn btn-success mt-4">ADD FORM</span>
+        <div class="form-row" *ngFor="let obj of dataarray, let i=index">
+
+            <div class="form-group col-md-3 mt-2">
+                <label for="email">Name</label><span class="required">*</span>
+                <input type="text" class="form-control" id="email" name="name1{{i}}" #name1='ngModel' [(ngModel)]="obj.name" required>
+
+            </div>
+
+
+            <div class="form-group col-md-3 mt-2">
+                <label for="pwd">Salary</label><span class="required">*</span>
+                <input type="number" class="form-control" id="pwd" name="salary1{{i}}" #salary1='ngModel' [(ngModel)]="obj.salary" required>
+            </div>
+
+            <div class="form-group col-md-3 mt-2">
+                <label for="pwd1">Age</label><span class="required">*</span>
+                <input type="number" class="form-control" id="age" name="age1{{i}}" #age1='ngModel' [(ngModel)]="obj.age" required>
+            </div>
+
+            <div class="form-group ">
+                <span (click)="removeform(i)" class="btn btn-primary col-md-4 ">-</span>
+            </div>
+
+        </div>
+
+
+        <div class="form-group col-md-3 mt2">
+            <button type="submit" (click)="submit(f) " [disabled]="!f.form.valid" class="btn btn-success">Submit</button>
+        </div>
+
+
+    </form>
+</div>
